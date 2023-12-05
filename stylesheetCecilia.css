@@ -9,15 +9,24 @@ header {
 }
 
 body {
+    background-color: #222;
     text-align: center;
-    background-color: black;
-    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     color: white;
 }
 
 h1, h3 {
     margin: 0;
     color:white;
+}
+
+.box {
+    background-color: #333; 
+    border: 2px solid rgb(172, 79, 79);
+    padding: 10px;
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .box__color {

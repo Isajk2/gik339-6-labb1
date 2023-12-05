@@ -1,27 +1,23 @@
-const myCheckbox = document.getElementById('checkbox');
-const myTextfield = document.getElementsByClassName('textfield');
-const myButton = document.querySelector('button');
+const myCheckbox = document.getElementById('style');
+const myTextfieldColor = document.getElementById('color');
+const myTextfieldContent = document.getElementById('content');
+const myButton = document.getElementById('button');
 const myOutput = document.getElementById('output');
+const myBox = document.querySelector('.box');
 
 myButton.addEventListener('click', function() {
-    console.log(myButton);
     myOutput.remove();
 });
 
-myCheckbox.addEventListener('click', function() { 
-    console.log(myCheckbox);
-    getvalue();  
+myCheckbox.addEventListener('change', function() {
+    changeBackgroundColor();
 });
 
-for (let i = 0; i < myTextfield.length; i++) {
-    myTextfield[i].addEventListener('input', function() {
-    var input = myTextfield[1].value;
-    myOutput.innerHTML=input;
-    console.log(myTextfield[i]);
-    });
-}
+myTextfieldContent.addEventListener('input', function() {
+    myOutput.innerHTML = myTextfieldContent.value;
+});
 
-function getvalue(){
-    var inputValue = myTextfield[0].value;
-    myOutput.style.backgroundColor = inputValue;
+function changeBackgroundColor() {
+    const colorValue = myTextfieldColor.value;
+    myBox.style.backgroundColor = colorValue;
 }

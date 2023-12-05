@@ -5,16 +5,38 @@
     <meta charset="UTF-8"/>
     <title>Labb 1 - Grupp 6</title>
     <link rel="stylesheet" href="./stylesheetCecilia.css"/>
+    <script src="./scriptCecilia.js" defer ></script>
 </head>
 
 <body>
     <header class="page-header">
-        <h1>JOINK</h1>
-
-    <div class="box"></div>
-
+        <h1>Labb 1</h1>
+        <h3>Grupp 6</h3>
     </header>
-</body>
 
+    <div class="box">
+        
+        <div class="box__color">
+            <label for="color">Färg:</label>
+            <input type="text" id="color" name="color" class="textfield">
+        </div>
+
+         <div class="box__content">
+            <label for="content">Innehåll:</label>
+            <input type="text" name="content" id="content" class="textfield">
+        </div>
+        
+        <div class="box__style">
+            <label for="style">Ändra Färg:</label>
+            <input type="checkbox" name="style" id="style" class="checkbox">
+        </div>
+
+        <button id="button" class="button">Ta Bort</button>
+
+        <div id="output"></div>
+
+    </div>
+
+</body>
 
 </html>
