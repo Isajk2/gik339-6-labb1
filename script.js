@@ -1,3 +1,6 @@
+// UPPGIFT 3 & 4
+
+
 const myCheckbox = document.getElementById('style');
 const myTextfieldColor = document.getElementById('color');
 const myTextfieldContent = document.getElementById('content');
@@ -5,6 +8,25 @@ const myButton = document.getElementById('button');
 const myOutput = document.getElementById('output');
 const myBox = document.querySelector('.box');
 
+
+// UPPGIFT 5
+
+
+// Funktion för att ändra bakgrundsfärgen på outputsektionen
+function changeOutputBackgroundColor() {
+    const colorValue = myTextfieldColor.value;
+    myOutput.style.backgroundColor = colorValue;
+}
+
+// UPPGIFT 6
+
+
+// Lyssnare för inmatning i innehållsfältet
+myTextfieldContent.addEventListener('input', function() {
+    // Uppdatera utdatasektionen med inmatat värde
+    myOutput.innerHTML = myTextfieldContent.value;
+});
+
 // Lyssnare för knappklick
 myButton.addEventListener('click', function() {
     // Ta bort utdatasektionen
@@ -13,48 +35,15 @@ myButton.addEventListener('click', function() {
 
 // Lyssnare för ändring i checkbox
 myCheckbox.addEventListener('change', function() {
-    // Anropa funktion för att ändra bakgrundsfärg
-    changeBackgroundColor();
+    // Anropa funktion för att ändra bakgrundsfärgen på utdatasektionen
+    changeOutputBackgroundColor();
 });
-
-// Lyssnare för inmatning i innehållsfältet
-myTextfieldContent.addEventListener('input', function() {
-    // Uppdatera utdatasektionen med inmatat värde
-    myOutput.innerHTML = myTextfieldContent.value;
-});
-
-// Funktion för att ändra bakgrundsfärg baserat på färginmatning
-function changeBackgroundColor() {
-    // Hämta färgvärdet från färginmatningen
-    const colorValue = myTextfieldColor.value;
-    // Tillämpa färgen på box-elementet
-    myBox.style.backgroundColor = colorValue;
-}
-
-
 
 
 
 // LEK
 
 
-// Lyssnare för knappklick
-myButton.addEventListener('click', function() {
-    // Ta bort utdatasektionen
-    myOutput.remove();
-});
-
-// Lyssnare för ändring i checkbox
-myCheckbox.addEventListener('change', function() {
-    // Anropa funktion för att ändra bakgrundsfärg
-    changeBackgroundColor();
-});
-
-// Lyssnare för inmatning i innehållsfältet
-myTextfieldContent.addEventListener('input', function() {
-    // Uppdatera utdatasektionen med inmatat värde
-    myOutput.innerHTML = myTextfieldContent.value;
-});
 
 // Lyssnare för tangenttryckning i innehållsfältet
 myTextfieldContent.addEventListener('keyup', function(event) {
