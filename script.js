@@ -1,71 +1,45 @@
 // UPPGIFT 3 & 4
-
-
-const myCheckbox = document.getElementById('style');
-const myTextfieldColor = document.getElementById('color');
-const myTextfieldContent = document.getElementById('content');
-const myButton = document.getElementById('button');
-const myOutput = document.getElementById('output');
-const myBox = document.querySelector('.box');
-
+const checkBox = document.getElementById('style');
+const textFieldColor = document.getElementById('color');
+const textFieldContent = document.getElementById('content');
+const allTextFields = document.getElementById('textfield'); // Fixa här
+const button = document.getElementById('button');
+const output = document.getElementById('output');
+const box = document.getElementsByClassName('box');
 
 // UPPGIFT 5
-
+// Fördefinierad funktion som loggar till konsolen och uppdaterar outputen
+function handleEvent(e) {
+    console.log("Chosen:", e.target);
+    const inputFieldName = e.target.name;
+  
+    if (inputFieldName == "content") {
+      const valueContent = e.target.value;
+      output.innerHTML = "<p>" + valueContent + "</p>";
+    }
+}
 
 // Funktion för att ändra bakgrundsfärgen på outputsektionen
-function changeOutputBackgroundColor() {
-    const colorValue = myTextfieldColor.value;
-    myOutput.style.backgroundColor = colorValue;
+function changeBackgroundColor() {
+    const colorValue = textFieldColor.value;
+    output.style.backgroundColor = colorValue;
 }
 
 // UPPGIFT 6
-
-
-// Lyssnare för inmatning i innehållsfältet
-myTextfieldContent.addEventListener('input', function() {
-    // Uppdatera utdatasektionen med inmatat värde
-    myOutput.innerHTML = myTextfieldContent.value;
-});
-
 // Lyssnare för knappklick
-myButton.addEventListener('click', function() {
-    // Ta bort utdatasektionen
-    myOutput.remove();
+button.addEventListener('click', function() {
+    output.remove();
 });
 
 // Lyssnare för ändring i checkbox
-myCheckbox.addEventListener('change', function() {
-    // Anropa funktion för att ändra bakgrundsfärgen på utdatasektionen
-    changeOutputBackgroundColor();
+checkBox.addEventListener('change', function() {
+    changeBackgroundColor();
 });
 
-
-
-// LEK
-
-
-
-// Lyssnare för tangenttryckning i innehållsfältet
-myTextfieldContent.addEventListener('keyup', function(event) {
-    // Om Enter-tangenten trycks ned (key code 13)
-    if (event.keyCode === 13) {
-        // Visa boxen igen med det nya meddelandet
-        showBox();
-    }
+// Lyssnare för inmatning i innehållsfältet
+textFieldContent.addEventListener('input', function() {
+    output.innerHTML = textFieldContent.value;
 });
 
-// Funktion för att ändra bakgrundsfärg baserat på färginmatning
-function changeBackgroundColor() {
-    // Hämta färgvärdet från färginmatningen
-    const colorValue = myTextfieldColor.value;
-    // Tillämpa färgen på box-elementet
-    myBox.style.backgroundColor = colorValue;
-}
-
-// Funktion för att visa boxen
-function showBox() {
-    // Återskapa utdatasektionen om den tidigare togs bort
-    if (!myOutput.parentElement) {
-        myBox.appendChild(myOutput);
-    }
-}
+// Lägg till eventlyssnare för "input" på inmatningsfältet
+textFieldContent.addEventListener('input', handleEvent);
